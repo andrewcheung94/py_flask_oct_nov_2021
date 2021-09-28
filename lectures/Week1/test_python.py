@@ -52,7 +52,7 @@ print(my_dictionary["number"]) # Access a value
 my_dictionary["favorite_food"] = "pizza"
 print(my_dictionary) # Print dictionary with key-value pair
 
-# Two ways to remove a key-value pair
+# Two ways to remove a key-value pair - the .pop() method or using the "del" keyword
 my_dictionary.pop("number") 
 # print(my_dictionary)
 del my_dictionary["favorite_food"]
