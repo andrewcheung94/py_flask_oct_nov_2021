@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+}
+
+thead {
+    background-color: violet;
+}
+
+td, th {
+    border: 1px solid black;
+}
