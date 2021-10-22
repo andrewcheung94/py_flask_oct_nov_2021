@@ -3,6 +3,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudiocode,python,flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,linux,visualstudiocode,python,flask
 
+### Added myself ###
+*.bak
+
 ### Flask ###
 instance/*
 !instance/.gitignore
