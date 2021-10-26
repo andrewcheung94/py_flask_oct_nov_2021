@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit pastry</title>
+</head>
+<body>
+    <h1>Edit pastry #{{ pastry.id }}: {{ pastry.name }}</h1>
+    <form action="/pastries/{{ pastry.id }}/edit" method="POST">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="{{ pastry.name }}">
+        </p>
+        <p>
+            <label for="size">Size:</label>
+            <input type="number" name="size" step="0.1" value="{{ pastry.size }}">
+        </p>
+        <p>
+            <label for="flavor">Flavor:</label>
+            <input type="text" name="flavor" value="{{ pastry.flavor }}">
+        </p>
+        <p>
+            <label for="price">Price:</label>
+            <input type="number" name="price" step="0.01" value="{{ pastry.price }}">
+        </p>
+        <input type="submit" value="Submit">
+    </form> 
+</body>
+</html>

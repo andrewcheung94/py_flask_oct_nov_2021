@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All pastries</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Flavor</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Loop thrugh the list of pastries, one at a time #}
+            {% for pastry in pastries %}
+                <tr>
+                    <td><a href="/pastries/{{ pastry.id }}">{{ pastry.id }}</a></td>
+                    <td>{{ pastry.name }}</td>
+                    <td>{{ pastry.flavor }}</td>
+                    <td>{{ pastry.size }}</td>
+                    <td>{{ pastry.price }}</td>
+                    <td>
+                        <a href="/pastries/{{ pastry.id }}/edit_page">Edit</a>
+                        <form action="/pastries/{{ pastry.id }}/delete" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            <p><a href="/pastries/new_page">Add new pastry</a></p>
+        </tbody>
+    </table>
+</body>
+</html>
