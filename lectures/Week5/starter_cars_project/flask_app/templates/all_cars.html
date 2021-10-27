@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All cars</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Max speed</th>
+                <th>Fuel efficiency</th>
+                <th>Gas tank size</th>
+                <th>Door count</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Exmain each of car in the list #}
+            {% for car in cars %}
+                <tr>
+                    <td><a href="/cars/{{ car.id }}">{{ car.id }}</a></td>
+                    <td>{{ car.name }}</td>
+                    <td>{{ car.max_speed }}</td>
+                    <td>{{ car.fuel_efficiency }}</td>
+                    <td>{{ car.gas_tank_size }}</td>
+                    <td>{{ car.door_count }}</td>
+                    <td>{{ car.created_at }}</td>
+                    <td>{{ car.updated_at }}</td>
+                    <td>
+                        <a href="/cars/{{ car.id }}/edit_page">Edit</a>
+                        <form action="/cars/{{ car.id }}/delete" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            {# Show manufacturer linked to each car! #}
+            <p><a href="/cars/new_page">Add new car</a></p>
+            <p><a href="/manufacturers">Show all manufacturers</a></p>
+        </tbody>
+    </table>
+</body>
+</html>
