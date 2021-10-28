@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All manufacturers</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Cars</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Exmain each of manufacturer in the list #}
+            {% for manufacturer in manufacturers %}
+                <tr>
+                    <td><a href="/manufacturers/{{ manufacturer.id }}">{{ manufacturer.id }}</a></td>
+                    <td>{{ manufacturer.name }}</td>
+                    <td>
+                    {% for car in manufacturer.cars %}
+                        {{ car.name }} 
+                    {% endfor %}
+                    </td>
+                    <td>{{ manufacturer.created_at }}</td>
+                    <td>{{ manufacturer.updated_at }}</td>
+                    <td>
+                        <a href="/manufacturers/{{ manufacturer.id }}/edit_page">Edit</a>
+                        <form action="/manufacturers/{{ manufacturer.id }}/delete" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            {# Show cars linked to manufacturers here! #}
+            <p><a href="/manufacturers/new_page">Add new manufacturer</a></p>
+            <p><a href="/cars">Show all cars</a></p>
+        </tbody>
+    </table>
+</body>
+</html>

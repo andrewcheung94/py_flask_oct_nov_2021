@@ -1,6 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 
 class Pastry:
+    db = 'bakery_schema' # Name of the database/schema you'll use - class variable
     # Model for the pastry - notice the names of the fields match those in the DB
     def __init__(self,data):
         self.id = data['id']
@@ -18,14 +19,14 @@ class Pastry:
         # Use %()s, even for numers - MySQL will convert for you when saved in the database.
         query = "INSERT INTO baked_goods (flavor, price, size, name) VALUES (%(flavor)s, %(price)s, %(size)s, %(name)s);"
         # Need the name of the schema in the connectToMySQL statemet
-        return connectToMySQL('bakery_schema').query_db(query, data) # Returns an integer
+        return connectToMySQL(cls.db).query_db(query, data) # Returns an integer
 
     # Method to grab all the pastries
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM baked_goods;"
         # Grab a list of dictionaries, where each dictionary is a row from the DB
-        pastries_from_db = connectToMySQL('bakery_schema').query_db(query)
+        pastries_from_db = connectToMySQL(cls.db).query_db(query)
         # print(pastries_from_db) # Show the list of dictionaries
         pastries = [] # List that will hold CLASS objects
         for pastry in pastries_from_db:
@@ -36,7 +37,7 @@ class Pastry:
     @classmethod
     def get_one(cls, data):
         query = "SELECT * FROM baked_goods WHERE id = %(id)s;"
-        pastry_from_db = connectToMySQL('bakery_schema').query_db(query, data)
+        pastry_from_db = connectToMySQL(cls.db).query_db(query, data)
         # print(pastry_from_db) # Show the list of dictionaries
         # Returns a single one - notice the [0] since pastry_from_db is a LIST, even though
         # only one item is in the list - SELECT quries return a LIST of dictionaries
@@ -45,9 +46,9 @@ class Pastry:
     @classmethod
     def edit_one(cls, data):
         query = "UPDATE baked_goods SET flavor = %(flavor)s, price = %(price)s, size = %(size)s, name = %(name)s WHERE id = %(id)s;"
-        return connectToMySQL('bakery_schema').query_db(query, data)
+        return connectToMySQL(cls.db).query_db(query, data)
 
     @classmethod
     def delete_one(cls, data):
         query = "DELETE FROM baked_goods WHERE id = %(id)s;"
-        return connectToMySQL('bakery_schema').query_db(query, data)
+        return connectToMySQL(cls.db).query_db(query, data)

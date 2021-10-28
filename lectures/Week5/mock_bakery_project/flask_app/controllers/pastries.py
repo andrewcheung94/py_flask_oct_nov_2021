@@ -55,8 +55,11 @@ def new_pastry_page():
     return render_template("new_pastry.html")
 
 # Creating a new pastry - ACTUALLY CREATES IT IN THE DATABASE
-@app.route("/pastries/new", methods=["POST"])
+@app.route("/pastries/new", methods=["GET","POST"])
 def new_pastry():
+    # Added in office hour on Wednesday, October 27 - to prevent folks from typing "/pastries/new" in browser
+    if request.method == "GET":
+        return redirect("/")
     data = {
         "flavor": request.form["flavor"],
         "name": request.form["name"],

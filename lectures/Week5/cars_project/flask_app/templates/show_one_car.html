@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View car</title>
+</head>
+<body>
+    <h1>Car {{ car.id }}: {{ car.manufacturer.name }} {{ car.name }}</h1>
+    <p>Max speed: {{ car.max_speed }}</p>
+    <p>Fuel efficiency: {{ car.fuel_efficiency }}</p>
+    <p>Gas tank size: {{ car.gas_tank_size }}</p>
+    <p>Door count: {{ car.door_count }}</p>
+    <p>Created at: {{ car.created_at }}</p>
+    <p>Updated at: {{ car.updated_at }}</p>
+    <a href="/cars">Show all cars</a>
+    <a href="/manufacturers">Show all manufacturers</a>
+</body>
+</html>
