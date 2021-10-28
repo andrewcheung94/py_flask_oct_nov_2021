@@ -10,7 +10,7 @@ from flask_app.models.manufacturer import Manufacturer # Import each model neede
 def index():
     return redirect("/manufacturers")
 
-# Showing all the manufacturers
+# Showing all the manufacturers - WITH the cars they made
 @app.route("/manufacturers")
 def all_manufacturers():
     # Grab all the manufacturers from the database
@@ -18,7 +18,7 @@ def all_manufacturers():
     # Show them all on one page
     return render_template("all_manufacturers.html", manufacturers = manufacturers)
 
-# Showing just one manufacturer - NO EDITING
+# Showing just one manufacturer with all its cars - NO EDITING
 @app.route("/manufacturers/<int:id>")
 def show_manufacturer(id):
     # When sending data through a query, you MUST pass in a dictionary!!

@@ -6,7 +6,7 @@ from flask_app.models.manufacturer import Manufacturer
 # Controllers contan all the logic for all your routes.  They call on the models, which
 # will handle all the interactions with the database.
 
-# Showing all the cars
+# Showing all the cars - with the manufacturers attached
 @app.route("/cars")
 def all_cars():
     # Grab all the cars from the database
@@ -14,7 +14,7 @@ def all_cars():
     # Show them all on one page
     return render_template("all_cars.html", cars = cars)
 
-# Showing just one car - NO EDITING
+# Showing just one car WITH its manufacturer attached - NO EDITING
 @app.route("/cars/<int:id>")
 def show_car(id):
     # When sending data through a query, you MUST pass in a dictionary!!
@@ -26,7 +26,7 @@ def show_car(id):
     # Send the data to the HTML
     return render_template("show_one_car.html", car = car)
 
-# Editing a car - SHOWING THE FORM
+# Editing a car WITH the manufacturer - SHOWING THE FORM
 @app.route("/cars/<int:id>/edit_page")
 def edit_car_page(id):
     data = {
@@ -48,7 +48,7 @@ def edit_car(id):
         "gas_tank_size": request.form["gas_tank_size"],
         "name": request.form["name"],
         "max_speed": request.form["max_speed"],
-        "manufacturer_id": request.form["manufacturer_id"],
+        "manufacturer_id": request.form["manufacturer_id"], # NEW!  Need to link manufacturer
     }
     Car.edit_one(data) # Save the changes for this car
     return redirect("/cars")
@@ -68,7 +68,7 @@ def new_car():
         "gas_tank_size": request.form["gas_tank_size"],
         "name": request.form["name"],
         "max_speed": request.form["max_speed"],
-        "manufacturer_id": request.form["manufacturer_id"],
+        "manufacturer_id": request.form["manufacturer_id"], # NEW!  Need to link manufacturer
     }
     # print(data)
     Car.create_one(data)
