@@ -114,6 +114,7 @@ class Manufacturer:
             manufacturer_instance.cars.append(car.Car(car_data)) # cls(data) makes an instance of a class
         return manufacturer_instance # Return manufacturer with cars
 
+    # Edit method
     @classmethod
     def edit_one(cls, data):
         query = "UPDATE manufacturers SET name = %(name)s WHERE id = %(id)s;"
