@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All patients</title>
+</head>
+<body>
+    <h1>All patients</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date of birth</th>
+                <th>Doctor</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.id }}</td>
+                    <td><a href="/patients/{{ patient.id }}">{{ patient.name }}</a></td>
+                    <td>{{ patient.date_of_birth }}</td>
+                    <td>{{ patient.doctor.name }}</td>
+                    <td>
+                        <a href="/patients/{{ patient.id }}/edit_page">Edit</a>    
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="/new_patient">Add patient</a></p>
+    <p><a href="/doctors">All doctors</a></p>
+</body>
+</html>

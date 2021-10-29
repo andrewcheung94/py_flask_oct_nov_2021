@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show patient</title>
+</head>
+<body>
+    <h1>Patient #{{ patient.id }}: {{ patient.name }}</h1>
+    <p>Date of birth: {{ patient.date_of_birth }}</p>
+    <p>Name of doctor: {{ patient.doctor.name }}</p>
+    <a href="/patients/{{ patient.id }}/edit_page">Edit this patient</a>
+    <form action="/patients/{{ patient.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    <a href="/patients">Show all patients</a>
+</body>
+</html>

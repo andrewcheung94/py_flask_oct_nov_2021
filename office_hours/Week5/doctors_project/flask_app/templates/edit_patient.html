@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit patient</title>
+</head>
+<body>
+    <h1>Edit patient #{{ patient.id }} whose name is {{ patient.name }}:</h1>
+    <form action="/patients/{{ patient.id }}/edit" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="{{ patient.name }}">
+        </div>
+        <div>
+            <label for="date_of_birth">Date of birth:</label>
+            {# Notice the .strftime() function to format the date string! #}
+            <input type="date" name="date_of_birth" id="date_of_birth" value="{{ patient.date_of_birth.strftime('%Y-%m-%d') }}">
+        </div>
+        <div>
+            <label for="doctor_id">Select doctor:</label>
+            <select name="doctor_id" id="doctor_id">
+                {# List each doctor as an option #}
+                {% for doctor in doctors %}
+                    {% if doctor.id == patient.doctor.id %}
+                    <option value="{{ doctor.id }}" selected>{{ doctor.name }}</option>
+                    {% else %}
+                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Edit patient">
+    </form>
+</body>
+</html>
