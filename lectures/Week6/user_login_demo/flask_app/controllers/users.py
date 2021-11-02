@@ -55,7 +55,7 @@ def landing_page():
     this_user = User.get_one(data)
     return render_template("landing_page.html",user=this_user)
 
-# Log out
+# Log out and send to login/reg pege
 @app.route("/logout")
 def log_out():
     session.clear() # Clear the sessoin
