@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask import flash # Need this to display flash messages
 from flask_app.models import manufacturer # IMPORT the FILE, NOT the class - to avoid circular imports
 
 class Car:
@@ -95,3 +96,11 @@ class Car:
     def delete_one(cls, data):
         query = "DELETE FROM cars WHERE id = %(id)s;"
         return connectToMySQL(cls.db_name).query_db(query, data)
+
+    @staticmethod
+    def validate_car(form_data):
+        is_valid = True # Assume that all the data are valid - for now
+        if len(form_data['name']) < 2:
+            is_valid = False
+            flash("Name must be at least 2 characters.")
+        return is_valid

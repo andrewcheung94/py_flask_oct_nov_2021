@@ -62,6 +62,8 @@ def new_car_page():
 # Creating a new car - ACTUALLY CREATES IT IN THE DATABASE
 @app.route("/cars/new", methods=["POST"])
 def new_car():
+    if not Car.validate_car(request.form):
+        return redirect(f"/cars/new_page")
     data = {
         "fuel_efficiency": request.form["fuel_efficiency"],
         "door_count": request.form["door_count"],
