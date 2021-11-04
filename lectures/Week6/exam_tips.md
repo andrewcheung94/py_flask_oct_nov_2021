@@ -3,8 +3,8 @@
 - Different colored belts possible:
     - An **orange belt** is earned if you get all the required features built, and you submit the exam to the platform within 24 hours.
     - A **red belt** is the same as the orange belt, but you finish it within 5 hours.
-    - A **black belt** required additional advanced features in addition to the main ones for the orange/red belt, AND you deploy your site publicly through AWS (or a similar host) within 24 hours after you submit to the platform.  *Email me the link to your public site so that I can examine and grade it.*
-    -  You keep the highest belt you earn, so if you get an orange/red and want to aim for a higher belt, you may!  If you do try for a higher belt and fail, don't worry - you still keep the original (highest) belt.
+    - A **black belt** requires additional advanced features in addition to the main ones for the orange/red belt, AND you deploy your site publicly through AWS (or a similar host) within 24 hours after you submit to the platform.  *Email me the link to your public site so that I can examine and grade it.*
+    - **You keep the highest belt you earn,** so if you get an orange/red and want to aim for a higher belt, you may!  If you do try for a higher belt and fail, don't worry - you still keep the original (highest) belt.
 - **You get 3 attempts.**  The last attempt must be unlocked by 11:59 PM Pacific on Wednesday, November 17.
 - Other important notes:
     - You are NOT allowed to talk with other people - students, instructors or TAs (or anyone similar) - to receive help or ask for how to implement a specific feature.  You are allowed to use the platform and other resources online during the test - but don't converse with anybody about the exam at all - including afterwards.
