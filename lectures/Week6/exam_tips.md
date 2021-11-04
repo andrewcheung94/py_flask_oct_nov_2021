@@ -1,0 +1,28 @@
+- [ ] Expectations for exam
+    - [ ] Administrative details:
+        - [ ] Eligibility requirement: MUST have 15/16 core assignments done
+        - [ ] 3 attempts - you keep the highest belt you earn, so if you get an orange/red and want to aim for a higher belt, you may!  Don't be discouraged if you fail the first or second time!  Many people need more than 1 attempt to pass.  If you need a one-on-one after the exam, book early!  Slots will fill fast!
+        - [ ] Last attempt must be unlocked by 11:59 PM Pacific on Wednesday, November 17
+        - [ ] You are NOT allowed to talk with other people - students, instructors or TAs (or anyone similar) - to receive help or ask for how to implement a specific feature.  You may only reach out if you need clarification or if a problem arises (e.g. can't submit exam, code doesn't work).  You are allowed to use the platform and other resources online during the test - but don't converse with anybody about the exam at all - including afterwards.
+        - [ ] Different colored belts possible - orange vs. red vs. black (talk about deployment and expectations)
+        - [ ] DON'T PLAGIARIZE!!!!
+        - [ ] Exams should be graded within 48 hours (slightly longer if taken during the weekend).
+    - [ ] Tips for exam:
+        - [ ] Have a working login/registration beforehand.
+        - [ ] Have the folders and at least a few files ready to go beforehand.
+        - [ ] Have your schema ready at least for the login/registration beforehand.
+        - [ ] Get some sleep the night before!
+        - [ ] Make sure you're hydrated and eat appropriately.
+	    - [ ] Don't cram too much night before; burnout will be problem
+    - [ ] In exam itself:
+        - [ ] Take screenshots of exam prompt in case your internet or the platform crashes.
+        - [ ] Decide whether to go for orange/red belt or black belt.  You will see two wireframes, both similar, but the black belt is more difficult.
+        - [ ] Test your project *a lot*!  For example, with login/registration, test validations.  Say you try to log in with a correct email but wrong password, or even an email that doesn't exist when logging in.  
+        - [ ] Examine your queries in MySQL Workbench!  Test them out and see what output you get, if anything.  Oftentimes the issue is along the lines of "cannot iterate a boolean" or something similar.  Also check the output in the terminal!
+        - [ ] Make a checklist of features, and cross off each one you finish!
+        - [ ] 20-minute rule (without other people) - can use Google, platform, etc.
+	- [ ] When you're done - send the project folder!  Include the model file (.mwb).  It has to be that file - not a screenshot of it.  Also include your Pipfile and Pipfile.lock in your folder.
+    - [ ] After passing exam:
+        - [ ] Remember to do discussion topics still!
+        - [ ] IMPORTANT: PASSING AN EXAM DOES NOT AUTOMATICALLY MEAN YOU PASS THIS COURSE.  Discussion topics (at least 13 out of 16) and core assignments (at least 15 out of 16) must be handed in too, in addition to earning a belt!
+        - [ ] If you're going to P&A - start thinking about a project you'd like to build!  Also review your JavaScript skills!
