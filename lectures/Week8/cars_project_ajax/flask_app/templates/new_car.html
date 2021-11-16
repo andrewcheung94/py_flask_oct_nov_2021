@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New car</title>
+</head>
+<body>
+    <h1>New car:</h1>
+    <form action="/cars/new" method="POST">
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </p>
+        <p>
+            <label for="max_speed">Max speed:</label>
+            <input type="number" id="max_speed" name="max_speed" step="1">
+        </p>
+        <p>
+            <label for="fuel_efficiency">Fuel efficiency:</label>
+            <input type="number" id="fuel_efficiency" step="0.1" name="fuel_efficiency">
+        </p>
+        <p>
+            <label for="gas_tank_size">Gas tank size:</label>
+            <input type="number" id="gas_tank_size" step="0.1" name="gas_tank_size">
+        </p>
+        <p>
+            <label for="door_count">Door count:</label>
+            <input type="number" id="door_count" step="1" name="door_count">
+        </p>
+        {# List all the manufacturers here #}
+        <p>
+            <label for="manufacturer_id">Select manufacturer:</label>
+            <select name="manufacturer_id" id="manufacturer_id">
+                {# List each manufacturer as an option #}
+                {% for manufacturer in all_manufacturers %}
+                    <option value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <input type="submit" value="Submit">
+    </form> 
+</body>
+</html>

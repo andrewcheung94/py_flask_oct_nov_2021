@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/find_manufacturers.js') }}"></script>
+    <title>All manufacturers</title>
+</head>
+<body>
+    <form id="manufacturer_form" method="POST">
+        <label for="manu_string">Search for manufacturer:</label>
+        <input type="text" name="manu_string" id="manu_string">
+        <input type="submit" value="Search">
+    </form>
+    <p id="search_results"></p>
+    <h3>All manufacturers:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Cars</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# Exmain each of manufacturer in the list #}
+            {% for manufacturer in manufacturers %}
+                <tr>
+                    <td><a href="/manufacturers/{{ manufacturer.id }}">{{ manufacturer.id }}</a></td>
+                    <td>{{ manufacturer.name }}</td>
+                    <td>
+                    {% for car in manufacturer.cars %}
+                        {{ car.name }} 
+                    {% endfor %}
+                    </td>
+                    <td>{{ manufacturer.created_at }}</td>
+                    <td>{{ manufacturer.updated_at }}</td>
+                    <td>
+                        <a href="/manufacturers/{{ manufacturer.id }}/edit_page">Edit</a>
+                        <form action="/manufacturers/{{ manufacturer.id }}/delete" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            {# Show cars linked to manufacturers here! #}
+            <p><a href="/manufacturers/new_page">Add new manufacturer</a></p>
+            <p><a href="/cars">Show all cars</a></p>
+        </tbody>
+    </table>
+    <p>Current time: {{ current_time }}</p>
+    <!-- <script>
+        let manu_form = document.getElementById("manufacturer-form");
+        // console.log(manu_form)
+        manu_form.onsubmit = function(e) {
+            console.log("Test")
+            e.preventDefault();
+            let form = new FormData(manu_form);
+            fetch("http://localhost:5000/search_manufacturers", { method:'POST', body: form})
+                .then( response => response.json() )
+                .then( data => {console.log(data) })
+        }
+    </script> -->
+</body>
+</html>
