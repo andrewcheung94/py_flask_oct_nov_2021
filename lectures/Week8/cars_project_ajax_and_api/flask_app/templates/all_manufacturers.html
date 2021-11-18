@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- defer="defer" not included in the script tag below -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/find_manufacturers.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/grab_space_image.js') }}"></script>
     <title>All manufacturers</title>
 </head>
 <body>
@@ -53,6 +55,12 @@
         </tbody>
     </table>
     <p>Current time: {{ current_time }}</p>
+    <form id="space_image_form" method="POST">
+        <label for="space_date">Search for image by date:</label>
+        <input type="date" name="space_date" id="space_date">
+        <input type="submit" value="Search for cool NASA images!">
+    </form>
+    <div id="space_placeholder"></div>
     <!-- <script>
         let manu_form = document.getElementById("manufacturer-form");
         // console.log(manu_form)

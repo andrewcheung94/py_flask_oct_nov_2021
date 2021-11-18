@@ -1,5 +1,5 @@
-window.onload = (e) => { // Arrow function: (e, x) => {} is equivalent to function(e, x) {}
-
+// window.onload = (e) => { // Arrow function: (e, x) => {} is equivalent to function(e, x) {}
+window.addEventListener('load', () => {
     let manu_form = document.getElementById("manufacturer_form");
     manu_form.addEventListener("submit", function(e) {
         e.preventDefault(); // Stop the browser from going to that route by default when the form is submitted
@@ -32,7 +32,7 @@ window.onload = (e) => { // Arrow function: (e, x) => {} is equivalent to functi
                 }
             })
     })
-}
+})
 
 // // Second version with "onsubmit"
 // window.onload = e => {

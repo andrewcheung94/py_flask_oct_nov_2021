@@ -1,7 +1,8 @@
-from flask_app import app # NEED this line
+from flask_app import app, api_key # NEED this line
 from flask import render_template, redirect, request, jsonify
 from flask_app.models.manufacturer import Manufacturer # Import each model needed here!
 from datetime import datetime # NEW - For showing the current time
+import requests # NEW - for handling API requests
 
 # Controllers contan all the logic for all your routes.  They call on the models, which
 # will handle all the interactions with the database.
@@ -88,3 +89,22 @@ def find_manufacturers():
     }
     manufacturers_from_db = Manufacturer.search_db(data)
     return jsonify(manufacturers_from_db) # Return the list of dictionaries as a response object
+
+# Route for finding an image from NASA
+@app.route("/search_space_images", methods=["POST"])
+def find_images():
+    # If no date sent through form, send message saying it wasn't entered
+    if request.form.get("space_date") == "":
+        return jsonify(message="No date sent")
+    # print("App's secret key from controller = " + app.secret_key)
+    # print("App's api key from controller = " + api_key)
+    # Create URL following the pattern below:
+    # https://api.nasa.gov/planetary/apod?key=value&key2=value2&key3=value3 Query parameters and values
+    url_link = f"https://api.nasa.gov/planetary/apod?api_key={api_key}"
+    # Add date
+    url_link += "&date="
+    url_link += request.form["space_date"]
+    # print(url_link)
+    # return jsonify(note="Date sent successfully")
+    response_from_site = requests.get(url_link) # Grab data from site
+    return jsonify(response_from_site.json())
